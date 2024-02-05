@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>run.ice.data</groupId>
+    <artifactId>table-zipper</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>table-zipper</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+        <maven-shade-plugin.version>3.5.1</maven-shade-plugin.version>
+        <flink.version>1.18.1</flink.version>
+        <cdc.version>3.0.1</cdc.version>
+        <mysql.version>8.3.0</mysql.version>
+        <lombok.version>1.18.30</lombok.version>
+        <junit.version>5.10.1</junit.version>
+        <log4j.version>2.22.1</log4j.version>
+        <slf4j.version>2.0.11</slf4j.version>
+        <zipper.version>0.0.1-SNAPSHOT</zipper.version>
+    </properties>
+
+    <modules>
+        <module>zipper-flink</module>
+        <module>zipper-core</module>
+        <module>zipper-demo</module>
+    </modules>
+
+    <dependencyManagement>
+
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerVersion>${java.version}</compilerVersion>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
