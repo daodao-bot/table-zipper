@@ -27,7 +27,9 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -172,8 +174,21 @@ public class FlinkUtil {
         Integer port = ZipperUtil.mysqlPort(parameter);
         String username = ZipperUtil.mysqlUsername(parameter);
         String password = ZipperUtil.mysqlPassword(parameter);
-        String[] databaseList = parameter.get("mysql.database-list", "").split(",");
-        String[] tableList = parameter.get("mysql.table-list", "").split(",");
+        String databases = parameter.get("mysql.databases", "");
+        String[] databaseList = databases.split(",");
+        for (int i = 0; i < databaseList.length; i++) {
+            databaseList[i] = databaseList[i].trim();
+        }
+        List<String> databaseTables = new ArrayList<>();
+        for (String database : databaseList) {
+            String tables = parameter.get("mysql.tables." + database, "");
+            String[] tableArray = tables.split(",");
+            for (int i = 0; i < tableArray.length; i++) {
+                tableArray[i] = tableArray[i].trim();
+                databaseTables.add(database + "." + tableArray[i]);
+            }
+        }
+        String[] tableList = databaseTables.toArray(new String[0]);
 
         Map<String, Object> configs = new HashMap<>();
         configs.put("decimal.format", "NUMERIC");
