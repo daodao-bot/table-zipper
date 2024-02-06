@@ -84,19 +84,23 @@ TRUNCATE TABLE `zipper`.`cat`;
 
 -- ADD COLUMN
 
-ALTER TABLE `zipper`.`cat` ADD COLUMN `age` INT NOT NULL DEFAULT 0 COMMENT '年龄';
+ALTER TABLE `zipper`.`cat`
+    ADD COLUMN `age` INT NOT NULL DEFAULT 0 COMMENT '年龄';
 
 -- MODIFY COLUMN
 
-ALTER TABLE `zipper`.`cat` MODIFY COLUMN `age` INT NOT NULL DEFAULT 1 COMMENT '年龄';
+ALTER TABLE `zipper`.`cat`
+    MODIFY COLUMN `age` INT NOT NULL DEFAULT 1 COMMENT '年龄';
 
 -- CHANGE COLUMN
 
-ALTER TABLE `zipper`.`cat` CHANGE COLUMN `age` `age` INT NOT NULL DEFAULT 2 COMMENT '年龄';
+ALTER TABLE `zipper`.`cat`
+    CHANGE COLUMN `age` `age` INT NOT NULL DEFAULT 2 COMMENT '年龄';
 
 -- DROP COLUMN
 
-ALTER TABLE `zipper`.`cat` DROP COLUMN `age`;
+ALTER TABLE `zipper`.`cat`
+    DROP COLUMN `age`;
 
 -- CREATE INDEX
 

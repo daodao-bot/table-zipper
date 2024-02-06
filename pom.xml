@@ -7,11 +7,11 @@
 
     <groupId>run.ice.data</groupId>
     <artifactId>table-zipper</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <packaging>pom</packaging>
 
-    <name>table-zipper</name>
+    <name>${project.groupId}:${project.artifactId}</name>
     <description>zipper table task based on flink-cdc</description>
     <url>https://github.com/daodao-bot/table-zipper</url>
 
@@ -30,7 +30,7 @@
         <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
-        <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
+        <central-publishing-maven-plugin.version>0.3.0</central-publishing-maven-plugin.version>
         <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
         <flink.version>1.18.1</flink.version>
         <cdc.version>3.0.1</cdc.version>
@@ -38,7 +38,7 @@
         <lombok.version>1.18.30</lombok.version>
         <junit.version>5.10.1</junit.version>
         <log4j.version>2.17.1</log4j.version>
-        <zipper.version>0.0.1-SNAPSHOT</zipper.version>
+        <zipper.version>0.0.1</zipper.version>
     </properties>
 
     <issueManagement>
@@ -68,11 +68,11 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
+            <id>central</id>
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
+            <id>central</id>
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
@@ -146,7 +146,7 @@
                 <version>${maven-source-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>ossrh</id>
+                        <id>central</id>
                         <phase>package</phase>
                         <goals>
                             <goal>jar-no-fork</goal>
@@ -182,7 +182,7 @@
                 <version>${maven-gpg-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>ossrh</id>
+                        <id>central</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>sign</goal>
@@ -190,17 +190,18 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- nexus-staging -->
+            <!-- central-publishing -->
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${nexus-staging-maven-plugin.version}</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${central-publishing-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                    <stagingProgressTimeoutMinutes>10</stagingProgressTimeoutMinutes>
+                    <publishingServerId>central</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                    <autoPublish>true</autoPublish>
+                    <waitUntil>published</waitUntil>
+                    <ignorePublishedComponents>true</ignorePublishedComponents>
                 </configuration>
             </plugin>
         </plugins>
