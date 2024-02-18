@@ -1,4 +1,4 @@
-package run.ice.data.zipper.core.udf;
+package dev.daodao.data.zipper.core.udf;
 
 import org.apache.flink.table.functions.ScalarFunction;
 

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>run.ice.data</groupId>
+        <groupId>dev.daodao.data</groupId>
         <artifactId>table-zipper</artifactId>
         <version>0.0.1</version>
     </parent>

@@ -1,7 +1,7 @@
-package run.ice.data.zipper.core.util;
+package dev.daodao.data.zipper.core.util;
 
 import org.apache.flink.api.java.utils.ParameterTool;
-import run.ice.data.zipper.core.constant.ZipperConstant;
+import dev.daodao.data.zipper.core.constant.ZipperConstant;
 
 /**
  * Zipper 工具类

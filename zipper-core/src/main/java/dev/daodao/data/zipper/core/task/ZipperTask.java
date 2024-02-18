@@ -1,4 +1,4 @@
-package run.ice.data.zipper.core.task;
+package dev.daodao.data.zipper.core.task;
 
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import lombok.extern.slf4j.Slf4j;
@@ -10,13 +10,13 @@ import org.apache.flink.streaming.api.datastream.SideOutputDataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.PrintSinkFunction;
-import run.ice.data.zipper.core.process.InitProcessFunction;
-import run.ice.data.zipper.core.process.SplitProcessFunction;
-import run.ice.data.zipper.core.sink.DdlMapFunction;
-import run.ice.data.zipper.core.sink.DdlSinkFunction;
-import run.ice.data.zipper.core.sink.DmlMapFunction;
-import run.ice.data.zipper.core.sink.DmlSinkFunction;
-import run.ice.data.zipper.core.util.FlinkUtil;
+import dev.daodao.data.zipper.core.process.InitProcessFunction;
+import dev.daodao.data.zipper.core.process.SplitProcessFunction;
+import dev.daodao.data.zipper.core.sink.DdlMapFunction;
+import dev.daodao.data.zipper.core.sink.DdlSinkFunction;
+import dev.daodao.data.zipper.core.sink.DmlMapFunction;
+import dev.daodao.data.zipper.core.sink.DmlSinkFunction;
+import dev.daodao.data.zipper.core.util.FlinkUtil;
 
 /**
  * Zipper 任务

@@ -1,4 +1,4 @@
-package run.ice.data.zipper.core.util;
+package dev.daodao.data.zipper.core.util;
 
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.debezium.JsonDebeziumDeserializationSchema;
@@ -13,8 +13,8 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.TableConfig;
 import org.apache.flink.table.api.TableEnvironment;
-import run.ice.data.zipper.core.constant.ZipperConstant;
-import run.ice.data.zipper.core.udf.DateTimeFormatFunction;
+import dev.daodao.data.zipper.core.constant.ZipperConstant;
+import dev.daodao.data.zipper.core.udf.DateTimeFormatFunction;
 
 import java.io.File;
 import java.io.IOException;

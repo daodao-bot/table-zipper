@@ -1,11 +1,11 @@
-package run.ice.data.zipper.core.sink;
+package dev.daodao.data.zipper.core.sink;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.java.utils.ParameterTool;
-import run.ice.data.zipper.core.util.ZipperUtil;
+import dev.daodao.data.zipper.core.util.ZipperUtil;
 
 import java.util.HashMap;
 import java.util.Map;
